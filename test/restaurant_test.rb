@@ -11,21 +11,18 @@ class RestaurantTest < Minitest::Test
   end
 
   def test_it_has_opening_time
-    skip
     restaurant = Restaurant.new('10:00', 'Fuel Cafe')
 
     assert_equal '10:00', restaurant.opening_time
   end
 
   def test_it_has_name
-    skip
     restaurant = Restaurant.new('10:00', 'Fuel Cafe')
 
     assert_equal 'Fuel Cafe', restaurant.name
   end
 
   def test_it_has_dishes
-    skip
     restaurant = Restaurant.new('10:00', 'Fuel Cafe')
 
     assert_equal [], restaurant.dishes
@@ -52,3 +49,24 @@ class RestaurantTest < Minitest::Test
     assert_equal ['Burrata', 'Pizzetta', 'Ravioli'], restaurant.dishes
   end
 end
+
+# ## Iteration 1
+#
+# For iteration 1, we have created all of the tests you will need - unskip tests one by one (remove or comment out the word `skip` at the top of each test), making each pass before moving on to the next test.  The tests will model the following interaction pattern:
+#
+# ```ruby
+# pry(main)> require './lib/restaurant'
+# #=> true
+#
+# pry(main)> restaurant = Restaurant.new('10:00', 'Fuel Cafe')
+# #=> #<Restaurant:0x007fb9aac93b08 @dishes=[], @name="Fuel Cafe", @opening_time="10:00">
+#
+# pry(main)> restaurant.opening_time
+# #=> "11:30"
+#
+# pry(main)> restaurant.name
+# #=> "Fuel Cafe"
+#
+# pry(main)> restaurant.dishes
+# #=> []
+# ```
