@@ -46,28 +46,29 @@ class RestaurantTest < Minitest::Test
 
     assert_equal ['Burrata', 'Pizzetta', 'Ravioli'], restaurant.dishes
   end
+
+  def test_it_knows_if_open_for_lunch
+    restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
+    restaurant2 = Restaurant.new('16:00', 'Il Poggio')
+    assert_equal true, restaurant1.open_for_lunch?
+    assert_equal false, restaurant2.open_for_lunch?
+  end
+
+  def test_it_upcases_dish_names
+    restaurant2 = Restaurant.new('16:00', 'Il Poggio')
+    restaurant2.add_dish('Burrata')
+    restaurant2.add_dish('Pizzetta')
+    restaurant2.add_dish('Ravioli')
+    assert_equal ["BURRATA", "PIZZETTA", "RAVIOLI"], restaurant2.menu_dish_names
+  end
+
 end
 
 
 # ## Iteration 3
 #
 # Now, it is time for you to write your own tests!  Follow the interaction pattern below to write one test, make that test pass, and move on to the next test.  You will have at minimum, one test per new method. A restaurant is open for lunch, if its opening time is before 12:00.  All restaurants are **VERY** excited about their dishes - The method `menu_dish_names` will return a list of dish names, **IN ALL CAPS** ('Breakfast Burrito' should become 'BREAKFAST BURRITO').
-#
-# ```ruby
-# require './lib/restaurant'
-# #=> true
-#
-# restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
-# #=> #<Restaurant:0x007ff6eb3e5b18 @dishes=[], @name="Fuel Cafe", @opening_time="10:00">
-#
-# restaurant2 = Restaurant.new('16:00', 'Il Posto')
-# #=> #<Restaurant:0x007ff6eb40eec8 @dishes=[], @name="Il Posto", @opening_time="16:00">
-#
-# restaurant1.open_for_lunch?
-# #=> true
-#
-# restaurant2.open_for_lunch?
-# #=> false
+
 #
 # restaurant2.add_dish('Burrata')
 #
