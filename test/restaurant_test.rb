@@ -30,7 +30,6 @@ class RestaurantTest < Minitest::Test
 
   #Iteration 2 Tests:
   def test_it_has_closing_time
-    skip
     restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
     restaurant2 = Restaurant.new('16:00', 'Il Poggio')
 
@@ -39,7 +38,6 @@ class RestaurantTest < Minitest::Test
   end
 
   def test_it_can_add_dishes
-    skip
     restaurant = Restaurant.new('16:00', 'Il Poggio')
 
     restaurant.add_dish('Burrata')
@@ -50,23 +48,33 @@ class RestaurantTest < Minitest::Test
   end
 end
 
-# ## Iteration 1
+
+# ## Iteration 2
 #
-# For iteration 1, we have created all of the tests you will need - unskip tests one by one (remove or comment out the word `skip` at the top of each test), making each pass before moving on to the next test.  The tests will model the following interaction pattern:
+# For iteration 2, we have created all of the tests you will need - unskip tests one by one, making each pass before moving on the the next test.  The tests will model the interaction pattern below.  The `closing_time` method should add the number of hours sent in the argument to the `opening_time` and return the time in 24 hour format.  For example, 3:00 PM (12hour / clock time) is 15:00 (24hour). A restaurant will only ever open at the top of the hour (:00).
 #
 # ```ruby
 # pry(main)> require './lib/restaurant'
 # #=> true
 #
-# pry(main)> restaurant = Restaurant.new('10:00', 'Fuel Cafe')
-# #=> #<Restaurant:0x007fb9aac93b08 @dishes=[], @name="Fuel Cafe", @opening_time="10:00">
+# pry(main)> restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
+# #=> #<Restaurant:0x007fdddb9ba490 @dishes=[], @name="Fuel Cafe", @opening_time="10:00">
 #
-# pry(main)> restaurant.opening_time
-# #=> "11:30"
+# pry(main)> restaurant2 = Restaurant.new('16:00', 'Il Poggio')
+# #=> #<Restaurant:0x007fdddb900018 @dishes=[], @name="Il Poggio", @opening_time="16:00">
 #
-# pry(main)> restaurant.name
-# #=> "Fuel Cafe"
+# pry(main)> restaurant1.closing_time(8)
+# #=> "18:00"
 #
-# pry(main)> restaurant.dishes
-# #=> []
+# pry(main)> restaurant2.closing_time(7)
+# #=> "23:00"
+#
+# pry(main)> restaurant2.add_dish('Burrata')
+#
+# pry(main)> restaurant2.add_dish('Pizzetta')
+#
+# pry(main)> restaurant2.add_dish('Ravioli')
+#
+# pry(main)> restaurant2.dishes
+# #=> ["Burrata", "Pizzetta", "Ravioli"]
 # ```
