@@ -49,32 +49,33 @@ class RestaurantTest < Minitest::Test
 end
 
 
-# ## Iteration 2
+# ## Iteration 3
 #
-# For iteration 2, we have created all of the tests you will need - unskip tests one by one, making each pass before moving on the the next test.  The tests will model the interaction pattern below.  The `closing_time` method should add the number of hours sent in the argument to the `opening_time` and return the time in 24 hour format.  For example, 3:00 PM (12hour / clock time) is 15:00 (24hour). A restaurant will only ever open at the top of the hour (:00).
+# Now, it is time for you to write your own tests!  Follow the interaction pattern below to write one test, make that test pass, and move on to the next test.  You will have at minimum, one test per new method. A restaurant is open for lunch, if its opening time is before 12:00.  All restaurants are **VERY** excited about their dishes - The method `menu_dish_names` will return a list of dish names, **IN ALL CAPS** ('Breakfast Burrito' should become 'BREAKFAST BURRITO').
 #
 # ```ruby
-# pry(main)> require './lib/restaurant'
+# require './lib/restaurant'
 # #=> true
 #
-# pry(main)> restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
-# #=> #<Restaurant:0x007fdddb9ba490 @dishes=[], @name="Fuel Cafe", @opening_time="10:00">
+# restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
+# #=> #<Restaurant:0x007ff6eb3e5b18 @dishes=[], @name="Fuel Cafe", @opening_time="10:00">
 #
-# pry(main)> restaurant2 = Restaurant.new('16:00', 'Il Poggio')
-# #=> #<Restaurant:0x007fdddb900018 @dishes=[], @name="Il Poggio", @opening_time="16:00">
+# restaurant2 = Restaurant.new('16:00', 'Il Posto')
+# #=> #<Restaurant:0x007ff6eb40eec8 @dishes=[], @name="Il Posto", @opening_time="16:00">
 #
-# pry(main)> restaurant1.closing_time(8)
-# #=> "18:00"
+# restaurant1.open_for_lunch?
+# #=> true
 #
-# pry(main)> restaurant2.closing_time(7)
-# #=> "23:00"
+# restaurant2.open_for_lunch?
+# #=> false
 #
-# pry(main)> restaurant2.add_dish('Burrata')
+# restaurant2.add_dish('Burrata')
 #
-# pry(main)> restaurant2.add_dish('Pizzetta')
+# restaurant2.add_dish('Pizzetta')
 #
-# pry(main)> restaurant2.add_dish('Ravioli')
+# restaurant2.add_dish('Ravioli')
 #
-# pry(main)> restaurant2.dishes
-# #=> ["Burrata", "Pizzetta", "Ravioli"]
+# restaurant2.menu_dish_names
+# #=> ["BURRATA", "PIZZETTA", "RAVIOLI"]
 # ```
+# ``
