@@ -62,21 +62,11 @@ class RestaurantTest < Minitest::Test
     assert_equal ["BURRATA", "PIZZETTA", "RAVIOLI"], restaurant2.menu_dish_names
   end
 
+  def test_it_announces_closing_time
+    restaurant1 = Restaurant.new('6:00', 'Fuel Cafe')
+    restaurant2 = Restaurant.new('16:00', 'Il Posto')
+    assert_equal "Il Posto will be closing at 11:00PM", restaurant2.announce_closing_time(7)
+    assert_equal "Fuel Cafe will be closing at 11:00AM", restaurant1.announce_closing_time(5)
+  end
+
 end
-
-
-# ## Iteration 3
-#
-# Now, it is time for you to write your own tests!  Follow the interaction pattern below to write one test, make that test pass, and move on to the next test.  You will have at minimum, one test per new method. A restaurant is open for lunch, if its opening time is before 12:00.  All restaurants are **VERY** excited about their dishes - The method `menu_dish_names` will return a list of dish names, **IN ALL CAPS** ('Breakfast Burrito' should become 'BREAKFAST BURRITO').
-
-#
-# restaurant2.add_dish('Burrata')
-#
-# restaurant2.add_dish('Pizzetta')
-#
-# restaurant2.add_dish('Ravioli')
-#
-# restaurant2.menu_dish_names
-# #=> ["BURRATA", "PIZZETTA", "RAVIOLI"]
-# ```
-# ``

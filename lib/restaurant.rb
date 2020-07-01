@@ -27,6 +27,16 @@ class Restaurant
   def menu_dish_names
     @dishes.map do |dish|
       dish.upcase
+    end
+  end
+
+  def announce_closing_time(hours)
+    standard1 = closing_time(hours) + "AM"
+    if closing_time(hours).to_i >= 12
+      standard2 = (closing_time(hours).to_i - 12).to_s + ':00PM'
+      "#{name} will be closing at #{standard2}"
+    elsif closing_time(hours).to_i < 12
+      "#{name} will be closing at #{standard1}"
     end 
   end
 
